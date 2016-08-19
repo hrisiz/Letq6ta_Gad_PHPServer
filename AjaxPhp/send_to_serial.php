@@ -8,4 +8,4 @@
 	}
 	// echo fprintf($fp,"%s","1");
 	fclose($fp);
-	echo "xaxa".$input;
+	//echo "xaxa".$input;
