@@ -1,10 +1,22 @@
+<style>
+	input{
+		width:100%;
+		background-color:grey;
+		color:black;
+		font-size:10em;
+	}
+	input#change_value{
+		min-height:100px;
+	}
+	input#input{
+		min-height:500px;
+	}
+	input:focus{
+		background-color:lightgrey;
+	}
+</style>
 <div>
-	<input id="change_value" type="number" value="100"/>
-	<button class="send_to_serial" data-value="1">Нагоре</button>
-	<button class="send_to_serial" data-value="2">Надолу</button>
-	<button class="send_to_serial" data-value="3">Напред</button>
-	<button class="send_to_serial" data-value="4">Назад</button>
-	<button class="send_to_serial" data-value="5">Наляво</button>
-	<button class="send_to_serial" data-value="6">Надясно</button>
-	<button class="send_to_serial" data-value="6">Изключи</button>
+	<input tabindex='1' id="change_value" type="number" value="100" style=""/>
+	<br>
+	<input tabindex='2' id="input"/>
 </div>
