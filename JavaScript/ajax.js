@@ -1,11 +1,42 @@
 jQuery(document).ready(function($){
 	var value_sign = '+';
-	$(document).on("click","button.send_to_serial",function(){
-		var value;
-		
-		
+	var check = setInterval(function(){
+		$.ajax({
+			url: "ajax_switch.php",
+			type:"POST",
+			data:{
+				"page":"is_alive"
+			},
+			success:function(result){
+				if(result == "OK"){
+			 		header_animation_color = "green";
+			  		$("input").prop('disabled',false);
+				}
+				if(result == "Error"){
+			  		header_animation_color = "red";
+			  		$("input").prop('disabled',true);
+				}
+			},
+			error:function(){	
+			  header_animation_color = "red";
+		  		$("input").prop('disabled',true);
+			}
+		});
+	},500);
+	$(document).on("click","button#alive",function(){
+		$.ajax({
+		  url: "ajax_switch.php",
+		  type:"POST",
+		  data:{
+		  	"page":"send_to_serial",
+		  	"input_value":value
+		  },
+		  success:function(result){
+			  console.log(result);
+			}
+		});
 	});
-	$("#input").keypress(function(e){
+	$(document).on("keypress","#input",function(e){
 		var value;
 		var change_val = $('input#change_value').val();
 		var change_val_with_sign = value_sign + change_val;
@@ -72,9 +103,9 @@ jQuery(document).ready(function($){
 			
 			case '.':
 					if(value_sign == '+'){
-						value = "0 " + change_val + ';' + "1 " + change_val + ';' + "2 " + change_val + ';' + "3 " + change_val + ';';	
+						value = "0 " + change_val + ';' + "1 " + change_val + ';' + "2 " + change_val + ';' + "3 " + change_val + ';';
 					}else{
-						value = "0 0;" + "1 0;" + "2 0;"+ "3 0;";					
+						value = "0 0;" + "1 0;" + "2 0;"+ "3 0;";
 					}
 				break;
 			
@@ -93,7 +124,7 @@ jQuery(document).ready(function($){
 		console.log(value);
 		$.ajax({
 		  url: "ajax_switch.php",
-		  type:"GET",
+		  type:"POST",
 		  data:{
 		  	"page":"send_to_serial",
 		  	"input_value":value

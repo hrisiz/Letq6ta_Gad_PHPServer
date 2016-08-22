@@ -1,0 +1,91 @@
+body{
+	background-color: black;
+	color: white;
+}
+header,section,footer{
+	width: 100%;
+	text-align: center;
+}
+header{
+	position:fixed;
+	z-index:99999;
+	width: 13%;
+	height: 100%;
+	right: 1%;
+}
+header > div{
+	position:relative;
+	width:50%;
+	padding-top:50%;
+	height:1px;
+}
+header > div > div#top_animation{
+	cursor: pointer;
+	z-index:99999;
+	position:absolute;
+	top:0px;
+	left:0%;
+	border-radius: 100%;
+	width: 0px;
+	height: 0px;  
+	padding: 100%;
+	background: darkblue; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(20deg,black,darkblue,black); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(20deg,black,darkblue,black); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(20deg,black,darkblue,black); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(20deg,black,darkblue,black); /* Standard syntax */
+}
+header > div > div#top_animation:hover{
+	background: blue; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(20deg,black,blue,black); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(20deg,black,blue,black); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(20deg,black,blue,black); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(20deg,black,blue,black); /* Standard syntax */
+}
+
+header > div#information{
+	display:none;
+	position:relative;
+	background-color:rgba(255,255,255,0.7);
+	width:100%;
+	height:100%;
+}
+
+header > div#information >ul{
+	position: absolute;
+	top: 10%;
+	text-align: left;
+	list-style: none;
+	padding-left: 5px;
+}
+header > div > div#top_animation > div{
+	position:absolute;
+	left: 25%;
+	top: 25%;
+	width: 50%;	
+	height: 50%;
+}
+header > div > div#top_animation > div > div > label{
+	font-size:3em;
+	font-weight: bold;
+	font-variant: small-caps;
+}
+header > div > div#top_animation > div > div > input#password{
+	display:block;
+	text-align:center;
+	width:100%;
+	font-size:5em;
+}
+section{
+	display:none;
+	position:relative;
+	width:80%;
+	background-color:grey;
+	min-height:80%;
+	text-align: center;
+}
+section > div > input#input {
+	width:100%;
+	text-align:center;
+	font-size:3em;
+}

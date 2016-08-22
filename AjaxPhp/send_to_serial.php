@@ -1,6 +1,6 @@
 <?php 
 	$input = $_GET['input_value'];
-	if(($fp = fopen("/dev/ttyUSB1","w")) == FALSE){
+	if(($fp = fopen($_SESSION['serial_file'],"w")) == FALSE){
 		echo "<p>Fail fopen Problem</p>";
 	}
 	if(fwrite($fp,$input) == FALSE){
