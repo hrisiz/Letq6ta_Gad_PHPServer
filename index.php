@@ -14,6 +14,7 @@
 		foreach (glob("/dev/*USB*") as $filename) {
 		    $serial_file = $filename;
 		}
+		exec('stty -F '.$serial_file.' 9600 raw');
 		if($serial_file == ""){
 			echo "<p class=\"error\">Drone is not connected to Serial port!</p>";
 		}else{
