@@ -42,6 +42,7 @@ jQuery(document).ready(function($){
 		var change_val_with_sign = value_sign + change_val;
 		switch(String.fromCharCode(e.keyCode)){
 			case '1':
+		alert(1);
 					value = "1 " + change_val_with_sign + ';';
 				break;
 			
