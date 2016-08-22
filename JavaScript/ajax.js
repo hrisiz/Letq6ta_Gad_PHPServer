@@ -121,17 +121,19 @@ jQuery(document).ready(function($){
 			 	console.log("Wrong input!");
 				return;
 		}
-		console.log(value);
-		$.ajax({
-		  url: "ajax_switch.php",
-		  type:"POST",
-		  data:{
-		  	"page":"send_to_serial",
-		  	"input_value":value
-		  },
-		  success:function(result){
-			  console.log(result);
-			}
-		});
+		if(String.fromCharCode(e.keyCode) != '+' && String.fromCharCode(e.keyCode) != '-'){
+			console.log(value);
+			$.ajax({
+			  url: "ajax_switch.php",
+			  type:"POST",
+			  data:{
+			  	"page":"send_to_serial",
+			  	"input_value":value
+			  },
+			  success:function(result){
+				  console.log(result);
+				}
+			});
+		}
 	});
 });
