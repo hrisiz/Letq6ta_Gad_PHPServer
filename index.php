@@ -14,7 +14,11 @@
 		foreach (glob("/dev/*USB*") as $filename) {
 		    $serial_file = $filename;
 		}
-		// exec('stty -F '.$serial_file.' 9600 raw');
+		//exec('stty -F '+$serial_file+' 9600 min 0 time 0 line 0 -brkint -icrnl -imaxbel -opost -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke');
+		// if(($_SESSION['fp'] = fopen($_SESSION['serial_file'],"w")) == FALSE){
+		// 	echo "<p>Fail fopen Problem</p>";
+		// 	return;
+		// }
 		if($serial_file == ""){
 			echo "<p class=\"error\">Drone is not connected to Serial port!</p>";
 		}else{

@@ -23,21 +23,8 @@ jQuery(document).ready(function($){
 			}
 		});
 	},500);
-	$(document).on("click","button#alive",function(){
-		$.ajax({
-		  url: "ajax_switch.php",
-		  type:"POST",
-		  data:{
-		  	"page":"send_to_serial",
-		  	"input_value":value
-		  },
-		  success:function(result){
-			  console.log(result);
-			}
-		});
-	});
 	$(document).on("keypress","#input",function(e){
-		var value = ";";
+		var value = "";
 		var change_val = $('input#change_value').val();
 		var change_val_with_sign = value_sign + change_val;
 		switch(String.fromCharCode(e.keyCode)){
@@ -95,10 +82,12 @@ jQuery(document).ready(function($){
 			
 			case '+':
 					value_sign = '+';
+				return;
 				break;
 			
 			case '-':
 					value_sign = '-';
+				return;
 				break;
 			
 			case '.':
@@ -121,19 +110,17 @@ jQuery(document).ready(function($){
 			 	console.log("Wrong input!");
 				return;
 		}
-		if(String.fromCharCode(e.keyCode) != '+' && String.fromCharCode(e.keyCode) != '-'){
-			console.log(value);
-			$.ajax({
-			  url: "ajax_switch.php",
-			  type:"POST",
-			  data:{
-			  	"page":"send_to_serial",
-			  	"input_value":value
-			  },
-			  success:function(result){
-				  console.log(result);
-				}
-			});
-		}
+		console.log(value);
+		$.ajax({
+		  url: "ajax_switch.php",
+		  type:"POST",
+		  data:{
+		  	"page":"send_to_serial",
+		  	"input_value":value
+		  },
+		  success:function(result){
+			  console.log(result);
+			}
+		});
 	});
 });
